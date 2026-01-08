@@ -1,0 +1,410 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'>\
+<defs>\
+<linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>\
+<stop offset='0%' stop-color='%23FFD700'/>\
+<stop offset='50%' stop-color='%23FFB700'/>\
+<stop offset='100%' stop-color='%23C99700'/>\
+</linearGradient>\
+</defs>\
+<text x='10' y='38' font-size='32' font-weight='900' fill='url(%23g)'>$</text>\
+</svg>") 16 16, auto;
+}
+
+
+:root {
+  --bg-main: #05070c;
+  --bg-panel: #0b1220;
+  --bg-soft: #0f172a;
+
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+
+  --green: #22c55e;
+  --green-dark: #16a34a;
+  --blue: #0ea5e9;
+  --red: #ef4444;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  background: radial-gradient(circle at top, #0b1220, #020617 70%);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 26px;
+  background: rgba(5, 7, 12, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #020617;
+}
+
+.left-controls select {
+  background: var(--bg-panel);
+  color: var(--text-main);
+  border: 1px solid #020617;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-right: 10px;
+}
+
+.right-brand .sim-label {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+.page-title {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.page-title h1 {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+.layout {
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 260px 1fr 360px;
+  gap: 30px;
+}
+
+/* =========================
+   PANELS
+========================= */
+.panel {
+  background: linear-gradient(180deg, #0b1220, #05070c);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.panel-title {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #f8fafc;
+}
+
+/* =========================
+   BILLIONAIRE SELECT
+========================= */
+.billionaire-card {
+  background: linear-gradient(135deg, #111827, #020617);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.billionaire-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.billionaire-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.billionaire-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+}
+
+/* =========================
+   CENTER BALANCE
+========================= */
+.center-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balance-wrapper {
+  text-align: center;
+}
+
+.billionaire-name {
+  font-size: 22px;
+  color: var(--text-muted);
+}
+
+.balance-amount {
+  margin: 20px 0;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.balance-sub {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* =========================
+   STORE
+========================= */
+.store-item {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 18px;
+  border: 1px solid #020617;
+}
+
+.store-item h4 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.store-item .price {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* =========================
+   QTY CONTROLS
+========================= */
+.qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.qty button {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--blue);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.qty button:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.qty span {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* =========================
+   BUY BUTTON
+========================= */
+.buy {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  color: #022c22;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+}
+
+/* =========================
+   CART (BOTTOM RIGHT)
+========================= */
+.cart {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 260px;
+  background: linear-gradient(180deg, #0b1220, #020617);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.cart-title {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.cart-items {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.cart-items div {
+  margin-bottom: 6px;
+}
+
+.cart-footer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* =========================
+   OVERLAY / PRANK
+========================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  width: 420px;
+  background: linear-gradient(180deg, #020617, #020617);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.8);
+}
+
+/* LOADER */
+.loader {
+  width: 64px;
+  height: 64px;
+  border: 6px solid #1f2937;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ERROR */
+.error-code {
+  font-size: 48px;
+  color: var(--red);
+  animation: shake 0.35s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* PRANK */
+.prank-title {
+  font-size: 42px;
+  color: var(--green);
+  margin-bottom: 12px;
+  animation: pop 0.6s ease forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.prank-text {
+  color: #bbf7d0;
+  margin-bottom: 20px;
+}
+
+.prank-btn {
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--green);
+  color: #022c22;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+html, body {
+  cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'>\
+<defs>\
+<linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>\
+<stop offset='0%' stop-color='%23FFD700'/>\
+<stop offset='50%' stop-color='%23FFB700'/>\
+<stop offset='100%' stop-color='%23C99700'/>\
+</linearGradient>\
+</defs>\
+<text x='10' y='38' font-size='32' font-weight='900' fill='url(%23g)'>$</text>\
+</svg>") 16 16, auto;
+}

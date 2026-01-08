@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Billionaire Project</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Billionaire Shopping Simulator. Spend billionaire money in a fun simulator.">
+  <meta name="robots" content="index, follow">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- GLOBAL HEADER -->
+<!-- ========================= -->
+<header class="top-bar">
+
+  <div class="left-controls">
+    <!-- LANGUAGE -->
+    <select id="langSelect">
+      <option value="EN">English</option>
+      <option value="UZ">O‘zbekcha</option>
+      <option value="RU">Русский</option>
+    </select>
+
+    <!-- CURRENCY -->
+    <select id="currencySelect">
+      <option value="USD">USD ($)</option>
+      <option value="UZS">UZS (so'm)</option>
+      <option value="RUB">RUB (₽)</option>
+    </select>
+  </div>
+
+  <div class="right-brand">
+    <span class="sim-label">Simulator XD</span>
+  </div>
+
+</header>
+
+<!-- ========================= -->
+<!-- PAGE TITLE -->
+<!-- ========================= -->
+<section class="page-title">
+  <h1 id="pageTitle">Milliarderlar loyihasi</h1>
+  <p class="subtitle">Simulation only · No real money</p>
+</section>
+
+<!-- ========================= -->
+<!-- MAIN LAYOUT -->
+<!-- ========================= -->
+<main class="layout">
+
+  <!-- ========================= -->
+  <!-- LEFT: BILLIONAIRE SELECT -->
+  <!-- ========================= -->
+  <aside class="panel left-panel">
+
+    <h2 class="panel-title">Milliarderni tanlang</h2>
+
+    <div class="billionaire-list">
+
+      <div class="billionaire-card select" data-person="elon">
+        <h3>Elon Musk</h3>
+        <p>Technology · Space · AI</p>
+      </div>
+
+      <div class="billionaire-card select" data-person="jeff">
+        <h3>Jeff Bezos</h3>
+        <p>E-commerce · Space</p>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================= -->
+  <!-- CENTER: BALANCE -->
+  <!-- ========================= -->
+  <section class="center-panel">
+
+    <div class="balance-wrapper">
+
+      <div id="name" class="billionaire-name">
+        —
+      </div>
+
+      <div id="balance" class="balance-amount">
+        $0
+      </div>
+
+      <div class="balance-sub">
+        Your current balance
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================= -->
+  <!-- RIGHT: STORE -->
+  <!-- ========================= -->
+  <aside class="panel right-panel">
+
+    <h2 class="panel-title">Spend Money</h2>
+
+    <!-- STORE ITEMS (ENGINE FILLS) -->
+    <div id="actions" class="store-list">
+      <!-- JS renders items here -->
+    </div>
+
+  </aside>
+
+</main>
+
+<!-- ========================= -->
+<!-- CART (BOTTOM RIGHT) -->
+<!-- ========================= -->
+<div class="cart">
+
+  <h3 class="cart-title">🛒 Savat</h3>
+
+  <div id="cart" class="cart-items">
+    <!-- JS fills cart -->
+  </div>
+
+  <div class="cart-footer">
+    <span>Total spent</span>
+    <strong id="cartTotal">$0</strong>
+  </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SIMULATION / PRANK OVERLAY -->
+<!-- ========================= -->
+<div id="simOverlay" class="overlay hidden">
+
+  <div class="modal">
+
+    <!-- PROCESSING -->
+    <div id="stepProcessing" class="step">
+      <div class="loader"></div>
+      <h2>Processing Simulation…</h2>
+      <p>Please wait</p>
+    </div>
+
+    <!-- ERROR -->
+    <div id="stepError" class="step hidden">
+      <h1 class="error-code">ERROR 8007</h1>
+      <p class="error-text">Unexpected simulation exception</p>
+    </div>
+
+    <!-- PRANK -->
+    <div id="stepPrank" class="step hidden">
+      <h1 class="prank-title">PRANK 😄</h1>
+      <p class="prank-text">
+        Relax. This is only a simulator.<br>
+        No real transactions were made.
+      </p>
+
+      <button id="backBtn" class="prank-btn">
+        Back to Simulator
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+<footer class="footer">
+  <span>Bazarov & ChatGPT</span>
+</footer>
+
+<!-- ========================= -->
+<!-- SCRIPTS -->
+<!-- ========================= -->
+<script src="engine.js"></script>
+
+</body>
+</html>
